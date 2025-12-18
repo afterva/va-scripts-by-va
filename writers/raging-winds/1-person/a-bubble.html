@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Bubble — Raging Winds</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper-width: min(900px, 92%);
+            --brown: #613a2a;
+            --dark-brown: #402116;
+            --muted: #6b6b6b;
+        }
+
+        html,body{height:100%;}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,var(--brown) 0%, #593424 60%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:43px 18px; 
+            color: #222;
+        }
+
+        .paper{
+            background: #fff;
+            width: var(--paper-width);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.405); 
+            border-top: 9px solid var(--dark-brown); 
+            border-bottom: 7px solid rgba(0,0,0,0.027);
+            padding: 36px 50px 58px; 
+            position:relative;
+        }
+
+        .meta-card{
+            position:absolute;
+            left:25px; 
+            top:-32px; 
+            background:var(--dark-brown);
+            color:#fff;
+            padding:9px 13px;
+            border-radius:3px;
+            font-size:12px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.225);
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+
+        .meta-card .meta-item{display:flex;flex-direction:column}
+        .meta-card .meta-item span:first-child{font-weight:600;opacity:0.95}
+    .meta-card .meta-item span:last-child{opacity:0.85;font-weight:300;font-size:11px}
+
+    .title{font-family:'Merriweather', Georgia, serif; text-align:center; font-size:40px; margin:7px 0 4px; color:var(--dark-brown);}
+    .author{ text-align:center; color:var(--muted); margin:0 0 18px; font-weight:600 }
+
+    .lead{ max-width:78ch; margin: 11px auto 18px; color:#333; line-height:1.58 }
+
+    p{ line-height:1.62; color:#222; margin:16px 0; text-align:justify }
+
+    .note{color:var(--muted); font-size:12px; text-align:right; margin-top:25px}
+
+        @media (max-width:560px){
+            .paper{ padding:25px 18px }
+            .title{ font-size:25px }
+            .meta-card{ left:11px; top:-26px; padding:7px 9px; gap:9px }
+            .meta-card .meta-item span:last-child{display:none}
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="paper" role="main">
+        <div class="meta-card" aria-hidden="true">
+            <div class="meta-item"><span>Cast Size</span><span>1</span></div>
+            <div class="meta-item"><span>Runtime</span><span>Short</span></div>
+            <div class="meta-item"><span>Genre</span><span>—</span></div>
+            <div class="meta-item"><span>Characteristics</span><span> Energetic, Invested</span></div>
+            <div class="meta-item"><span>Recommended Music</span><span>---</span></div>
+            <div class="meta-item"><span>Additional Info</span><span>Scientist</span></div>
+        </div>
+
+        <h1 class="title">A Bubble</h1>
+        <div class="author">Raging Winds</div>
+
+        <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> -->
+
+        <p>Life is so beautiful, everyone in their complex, intricate lives apart from everyone else. It's like everyone has their own space that grows and ends. But what if they crossed paths? Well, well, well, that is what I call The Bubble Theory! Why, you may be asking, “What is the bubble theory?”.</p>
+
+        <p><em>Starts to scratch their head</em></p>
+
+        <p> Well according to my calculations, one's life is presented by a bubble encased around themselves. The willed mind of the person dictates the strength of said bubble, then the colors on said bubble reciprocates to its emotion, their strongest emotional spectrum is what dictates the major coloration. On top of this, with some recent research, one can amplify and modify their bubble to what their soul deems fitting for the person. Strong willed can sometimes change the natural order to what they deem fits to their lifestyle. Now, we cross each other, the Bubbles will react vigorously. Causing tension depending on the intent, or the opposite, causing comfort. Tension can be represented in many emotions, fear, rage, sadness, etc. </p>
+
+        <p>In recent reports, people have gone berserk due to overstimulation in one or multiple emotions causing an uproar in the environment they are in. Depending on the will of a person, they can see these phenomenons, but like some common folk, they only see the aftermath of said power. More tests of the matter will be tested in the future, about the blessing bestowed upon us. One day we will all see these phenomenons, via our own DNA or by technology. This is all the information I have right now on this matter. More logs will be documented with further testing, this is Dr. Veltrum signing out. </p>
+
+        <!-- <div class="note">Cast: 1 · Runtime: short</div> -->
+    </main>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Prayer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper-width: min(900px, 92%);
+            --brown: #613a2a;
+            --dark-brown: #402116;
+            --muted: #6b6b6b;
+        }
+
+        html,body{height:100%;}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,var(--brown) 0%, #593424 60%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:43px 18px; 
+            color: #222;
+        }
+
+        .paper{
+            background: #fff;
+            width: var(--paper-width);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.405); 
+            border-top: 9px solid var(--dark-brown);
+            border-bottom: 7px solid rgba(0,0,0,0.027);
+            padding: 36px 50px 58px;
+            position:relative;
+        }
+
+        .meta-card{
+            position:absolute;
+            left:25px; 
+            top:-32px; 
+            background:var(--dark-brown);
+            color:#fff;
+            padding:9px 13px; 
+            border-radius:3px;
+            font-size:12px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.225);
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+
+        .meta-card .meta-item{display:flex;flex-direction:column}
+        .meta-card .meta-item span:first-child{font-weight:600;opacity:0.95}
+    .meta-card .meta-item span:last-child{opacity:0.85;font-weight:300;font-size:11px}
+
+    .title{font-family:'Merriweather', Georgia, serif; text-align:center; font-size:40px; margin:7px 0 4px; color:var(--dark-brown);} /* ~10% smaller */
+    .author{ text-align:center; color:var(--muted); margin:0 0 18px; font-weight:600 }
+
+    .lead{ max-width:78ch; margin: 11px auto 18px; color:#333; line-height:1.58 }
+
+    p{ line-height:1.62; color:#222; margin:16px 0; text-align:justify }
+
+        /* small footer note area */
+    .note{color:var(--muted); font-size:12px; text-align:right; margin-top:25px}
+
+        @media (max-width:560px){
+            .paper{ padding:25px 18px }
+            .title{ font-size:25px }
+            .meta-card{ left:11px; top:-26px; padding:7px 9px; gap:9px }
+            .meta-card .meta-item span:last-child{display:none}
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="paper" role="main">
+        <div class="meta-card" aria-hidden="true">
+            <div class="meta-item"><span>Cast Size</span><span>1</span></div>
+            <div class="meta-item"><span>Runtime</span><span>Short</span></div>
+            <div class="meta-item"><span>Genre</span><span>—</span></div>
+            <div class="meta-item"><span>Characteristics</span><span>—</span></div>
+            <div class="meta-item"><span>Recommended Music</span><span>—</span></div>
+            <div class="meta-item"><span>Additional Info</span><span>—</span></div>
+        </div>
+
+        <h1 class="title">A Prayer</h1>
+        <div class="author">Raging Winds</div>
+
+        <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> -->
+
+        <p>Oh how the gods have given me such grace. The blessing upon my soul with the satisfaction of warmth and fulfillment during these times of great pain. FOR THE GODS HAVE <i> BLESSED ME WITH <strong>TACO BELL </strong> ON THIS FINE NIGHT. </i> My belly will forever be filled by God's grace bestowed upon me. The succulent crunch of that dorito taco, the warm balls of goo that engulf my cheeks with its sugary, cinnamon goodness. What a blessing this is on a late friday night. For tomorrow, I will endure a battle far beyond any man or woman. For this time of blessing I am given, I will fuel myself for the battle of bloodshed and tears for I have succumbed. The battle will be gruesome, but <strong>I will be victorious.  </strong> </p>
+
+        
+    </main>
+</body>
+</html>

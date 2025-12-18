@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Raging Winds — Profile</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/main.css">
+    <style>
+        :root{--brown:#613a2a;--dark-brown:#402116;--paper:#fff;--muted:#6b6b6b;--max-width:980px}
+        *{box-sizing:border-box}
+        body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:linear-gradient(180deg,var(--brown) 0%,var(--dark-brown) 60%);color:#222;display:flex;justify-content:center;padding:36px 18px}
+        
+        .sheet{
+            width:100%;
+            max-width:var(--max-width);
+            background:var(--paper);
+            border-top:8px solid var(--dark-brown);
+            box-shadow:0 18px 40px rgba(0,0,0,0.28);
+            border-radius:8px;
+            overflow:hidden;
+        }
+        .cover{height:220px;background:#7a4f3b;display:block}
+        .hero{display:flex;gap:18px;padding:18px 22px;align-items:center}
+        .pfp{width:120px;height:120px;border-radius:12px;flex:0 0 120px;overflow:hidden;border:6px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,0.18)}
+        .pfp img{width:100%;height:100%;object-fit:cover;display:block}
+        .meta{flex:1}
+        .meta h1{margin:4px 0 6px;font-family:Merriweather,serif;color:var(--dark-brown)}
+        .meta p.lead{margin:0;color:var(--muted)}
+        .content{display:grid;grid-template-columns:320px 1fr;gap:20px;padding:18px}
+        .bio{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:6px;border:1px solid rgba(64,33,22,0.06)}
+        .works{background:transparent}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+        .card{background:#fff;border:1px solid rgba(64,33,22,0.08);padding:12px;border-radius:8px}
+        a.card-link{display:block;text-decoration:none;color:inherit}
+        a.card-link:focus-visible{outline:3px solid rgba(64,33,22,0.14);outline-offset:4px}
+        .card h4{margin:6px 0;color:var(--dark-brown);font-size:16px}
+        .card .meta{font-size:13px;color:var(--muted);margin-bottom:6px}
+        .small{font-size:13px;color:var(--muted)}
+        footer{padding:18px;background:#fafafa;border-top:1px solid rgba(0,0,0,0.03);text-align:center;color:var(--muted);font-size:13px}
+        @media (max-width:880px){.content{grid-template-columns:1fr}.hero{flex-direction:row;align-items:center}.pfp{width:92px;height:92px}}
+    </style>
+</head>
+<body>
+    
+    <div class = "container">
+        <header>
+            <div class="brand">VA Scripts Library</div>
+            <nav aria-label="Primary navigation" class="header-nav">
+                <a href="../../index.html" class="small-btn nav-link">Home</a>
+                <a href="../../writers.html" class="small-btn nav-link">Writers</a>
+            </nav>
+        </header>
+        
+        <div class="sheet" role="main">
+            <div class="cover">
+                <img src="cover.svg" alt="cover" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div class="hero">
+                <div class="pfp"><img src="pfp.svg" alt="Raging Winds avatar"></div>
+                <div class="meta">
+                    <h1>Raging Winds</h1>
+                    <p class="lead">Inroduction.</p>
+                </div>
+                <div style="margin-left:auto;padding-right:12px"><a href="../../index.html" class="small" style="text-decoration:none;color:var(--dark-brown)">← Library</a></div>
+            </div>
+
+            <div class="content">
+                <aside class="bio">
+                    <h3 style="margin:0 0 8px">About</h3>
+                    <p style="margin:0 0 8px">BIOOO</p>
+                    <p class="small">Works: 1-person and 2-person pieces · Tone: introspective · Updated: 2025</p>
+                </aside>
+
+                <section class="works">
+                    <h3 style="margin-top:0">Works</h3>
+                    <div class="grid" id="worksGrid">
+                        <!-- cards injected here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // gather links to works in the current folder structure
+        const works = [];
+        // add 1-person
+        const one = [
+            '1-person/a-bubble.html', '1-person/a-feather.html','1-person/a-fight.html','1-person/a-ghost.html','1-person/a-hurtful-soul.html','1-person/a-night.html','1-person/a-prayer.html','1-person/a-voice.html','1-person/an-empty-promise.html','1-person/andrew-garfield.html'
+        ];
+        // add 2-person
+        const two = ['2-person/fighting.html','2-person/the-corner-side.html'];
+        one.concat(two).forEach(p=> works.push(p));
+
+        const grid = document.getElementById('worksGrid');
+        works.forEach(rel=>{
+            const link = document.createElement('a');
+            link.href = rel;
+            link.className = 'card-link';
+            const art = document.createElement('article');
+            art.className = 'card';
+            // derive title from filename
+            const name = rel.split('/').pop().replace(/\.html$/,'').replace(/-/g,' ');
+            const title = name.replace(/\b\w/g, l=> l.toUpperCase());
+            const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = 'Raging Winds • ' + (rel.includes('1-person')? '1-person' : '2-person');
+            const h4 = document.createElement('h4'); h4.textContent = title;
+            const p = document.createElement('p'); p.textContent = '';
+            art.appendChild(h4); art.appendChild(meta); art.appendChild(p);
+            link.appendChild(art);
+            grid.appendChild(link);
+        });
+    </script>
+</body>
+</html>

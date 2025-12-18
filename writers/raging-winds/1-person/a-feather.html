@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Feather</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper-width: min(900px, 92%);
+            --brown: #613a2a;
+            --dark-brown: #402116;
+            --muted: #6b6b6b;
+        }
+
+        html,body{height:100%;}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,var(--brown) 0%, #593424 60%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:43px 18px; 
+            color: #222;
+        }
+
+        .paper{
+            background: #fff;
+            width: var(--paper-width);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.405); 
+            border-top: 9px solid var(--dark-brown); 
+            border-bottom: 7px solid rgba(0,0,0,0.027);
+            padding: 36px 50px 58px; 
+            position:relative;
+        }
+
+        .meta-card{
+            position:absolute;
+            left:25px; 
+            top:-32px; 
+            background:var(--dark-brown);
+            color:#fff;
+            padding:9px 13px;
+            border-radius:3px;
+            font-size:12px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.225);
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+
+        .meta-card .meta-item{display:flex;flex-direction:column}
+        .meta-card .meta-item span:first-child{font-weight:600;opacity:0.95}
+    .meta-card .meta-item span:last-child{opacity:0.85;font-weight:300;font-size:11px}
+
+    .title{font-family:'Merriweather', Georgia, serif; text-align:center; font-size:40px; margin:7px 0 4px; color:var(--dark-brown);}
+    .author{ text-align:center; color:var(--muted); margin:0 0 18px; font-weight:600 }
+
+    .lead{ max-width:78ch; margin: 11px auto 18px; color:#333; line-height:1.58 }
+
+    p{ line-height:1.62; color:#222; margin:16px 0; text-align:justify }
+
+    .note{color:var(--muted); font-size:12px; text-align:right; margin-top:25px}
+
+        @media (max-width:560px){
+            .paper{ padding:25px 18px }
+            .title{ font-size:25px }
+            .meta-card{ left:11px; top:-26px; padding:7px 9px; gap:9px }
+            .meta-card .meta-item span:last-child{display:none}
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="paper" role="main">
+        <div class="meta-card" aria-hidden="true">
+            <div class="meta-item"><span>Cast Size</span><span>1</span></div>
+            <div class="meta-item"><span>Runtime</span><span>Short</span></div>
+            <div class="meta-item"><span>Genre</span><span>—</span></div>
+            <div class="meta-item"><span>Characteristics</span><span>—</span></div>
+            <div class="meta-item"><span>Recommended Music</span><span>—</span></div>
+            <div class="meta-item"><span>Additional Info</span><span>—</span></div>
+        </div>
+
+        <h1 class="title">A Feather</h1>
+        <div class="author">Raging Winds</div>
+
+        <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> -->
+
+        <p>I’m just thinking out loud here, but doesn’t it seem hard to breathe sometimes? Like every gasp for air feels like your lungs are lighting up once more like embers..? Every day my eyes open it feels as though I should leave them shut for the day. My mind racing the moment I wake up thinking, “Who would miss me if I didn’t talk to them today? </p>
+
+
+        <p> Who would want to even know that I’m okay?”. In the end I come to think no one truly cares.. about me anyways. No, they only care about what I can do for them. I feel like this isn’t just a me thing though. It feels like everyone has this same mindset including myself. I am no better than the last person on this Earth. Only thinking for myself like the lowly selfish scum I am. And to ask for people to turn a blind eye my way even though I wouldn't do the same? </p>
+
+        <p>That's really sick, huh. I’m just like everyone else in this corrupt society, just a number for others to view and use. Time is such a precious thing that I even forget that it's the most important asset we own. And here I lay thinking about how others will help me. I am truly alone in this world, runed by numbers and green paper that has less value than a piece of metal. Is there no one to share this weight with? I suppose I am but a feather holding up this generational burden and now expects us to fix it. What an irony this world plays.</p>
+
+        <!-- <div class="note">Cast: 1 · Runtime: short</div> -->
+    </main>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Bubble — Raging Winds</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper-width: min(900px, 92%);
+            --brown: #613a2a;
+            --dark-brown: #402116;
+            --muted: #6b6b6b;
+        }
+
+        html,body{height:100%;}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,var(--brown) 0%, #593424 60%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:43px 18px; 
+            color: #222;
+        }
+
+        .paper{
+            background: #fff;
+            width: var(--paper-width);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.405); 
+            border-top: 9px solid var(--dark-brown); 
+            border-bottom: 7px solid rgba(0,0,0,0.027);
+            padding: 36px 50px 58px; 
+            position:relative;
+        }
+
+        .meta-card{
+            position:absolute;
+            left:25px; 
+            top:-32px; 
+            background:var(--dark-brown);
+            color:#fff;
+            padding:9px 13px;
+            border-radius:3px;
+            font-size:12px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.225);
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+
+        .meta-card .meta-item{display:flex;flex-direction:column}
+        .meta-card .meta-item span:first-child{font-weight:600;opacity:0.95}
+    .meta-card .meta-item span:last-child{opacity:0.85;font-weight:300;font-size:11px}
+
+    .title{font-family:'Merriweather', Georgia, serif; text-align:center; font-size:40px; margin:7px 0 4px; color:var(--dark-brown);}
+    .author{ text-align:center; color:var(--muted); margin:0 0 18px; font-weight:600 }
+
+    .lead{ max-width:78ch; margin: 11px auto 18px; color:#333; line-height:1.58 }
+
+    p{ line-height:1.62; color:#222; margin:16px 0; text-align:justify }
+
+    .note{color:var(--muted); font-size:12px; text-align:right; margin-top:25px}
+
+        @media (max-width:560px){
+            .paper{ padding:25px 18px }
+            .title{ font-size:25px }
+            .meta-card{ left:11px; top:-26px; padding:7px 9px; gap:9px }
+            .meta-card .meta-item span:last-child{display:none}
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="paper" role="main">
+        <div class="meta-card" aria-hidden="true">
+            <div class="meta-item"><span>Cast Size</span><span>1</span></div>
+            <div class="meta-item"><span>Runtime</span><span>Short</span></div>
+            <div class="meta-item"><span>Genre</span><span>—</span></div>
+            <div class="meta-item"><span>Characteristics</span><span>Angry</span></div>
+            <div class="meta-item"><span>Recommended Music</span><span>---</span></div>
+            <div class="meta-item"><span>Additional Info</span><span>Scientist</span></div>
+        </div>
+
+        <h1 class="title">Fighting</h1>
+        <div class="author">Raging Winds</div>
+
+        <p class="lead"><strong>Jack:</strong> A person who has told Max an important secret built on trust. Now that he has broken it, consequences are to be had. 
+        <br>
+        <strong> Max: </strong> The person who tried to tell everyone the secret, and now has been caught.
+        </p>
+
+        <p class = "narrator">[This conflict takes place in an office between two people. Jack stands and ponders as he looks at the awards on his wall while holding on to some documentation. Now, he waits for his partner to come in for another day. Max walks in and goes to the front of the desk to sit down. Jack turns to Max with disdain in his face]</p>
+
+        <p class = "max"><strong>Max (Nonchalant, worried):</strong> Heya Jack, what's going on today?…..Jack?</p>
+
+        <p class = "jack">Jack (Hurt, saden, Angry): You were going to tell everyone, weren't you? </p>
+
+        <p class = "narrator">[Max turns around to look at jack]</p>
+
+        <p class = "max"><strong>Max (Confused):</strong> About what?</p>
+
+        <p class = "narrator">[Jacks gaze becomes serious, and drops the accusation file on the ground in between them] </p>
+
+        <p class = "jack"><strong>Jack (Angry, Stern) :</strong> Don’t play dumb. You told them about my secret…I trusted you, Max ... .you went spreading things that don't even apply to you!</p>
+
+        <p class = "narrator">[Max looks down at the papers he sent over to the police to arrest Jack] </p>
+
+        <p class = "max"><strong>Max (Disbelf, Self-righteous, Defensive):</strong> H-How can I not? This is news that everyone needs to know Jack. Your name will be the talk of the town. </p>
+
+        <p class = "narrator">[Max begins to stand up towards Jack]</p>
+
+        <p class = "jack"><strong>Jack (Angered, disbelief):</strong> I never wanted this! How were you just going to tell everyone my secret? Who gave you the right to spout such a thing?! </p>
+
+        <p class = "max"><strong>Max (Stern, serious):</strong> I have the right to let everyone know. The people must know what you did, and you will be held accountable for your actions. </p>
+
+        <p class = "jack"><strong>Jack (Angry, Venomous):</strong> Accountable? In what world do people that don’t even know me need to know about my life! That’s my business and I get to choose who knows about it, NOT YOU! They love me! </p>
+
+        <p class = "narrator">[Jack begins to walk towards Max]</p>
+
+        <p class = "max"><strong>Max (Angry, saddened):</strong> I do get a say in what the people should know! They don’t want a murderous snake as a Governor! They love the lies of a corrupt, deranged official of false promises.</p>
+
+        <p class = "narrator">[Jack's enraged, he sprints towards Max and tackles him over the table, then begins to furiously pummel him. In a flurry of punches, Max begins to block them and take the defensive]</p>
+
+        <p class = "jack"><strong>Jack (Outraged, venomous):</strong> You won’t ruin MY career, you insolent bastard! I should've never let you know..</p>
+
+        <p class = "narrator">[ Max starts blocking a few of the blows. He quickly glances around each blow to find a way out.]</p>
+
+        <p class = "max"><strong>Max (Furious, struggling):</strong> ...About the people you killed to get to the top of the pyramid? You are what's wrong with society...YOU GREEDY BASTARD!</p>
+
+        <p class = "narrator">[Max looks over at the picture frame saddened. The glimpse of the photo lost in time showed both of them shaking hands in celebration of beating the others in the rankings. He then grabs the photo and smashes it across his head. Jack falls off of Max giving him the opportunity to gain distance. As Max gets up to leave, Jack looks over at Max with a glare of murderous intent. The blood from his head starts to flow down into his eyes fueling him in rage]</p>
+
+        <p class = "jack"><strong>Jack (Insanity, anger, desperation, venomous):</strong> You..you..YOU will not stop me from my goals! </p>
+
+        <p class = "narrator">[Jack picks up a pair of scissors and starts to run towards Max in desperation]</p>
+
+        <p class = "max"><strong>Max (Sadden, in disbelief, scared):</strong> You are a lunatic! It's now time to take responsibility for your crimes. </p>
+
+        <p class = "jack"><strong>Jack (Desperation, anger):</strong> You're not leaving Max! Not until you're GONE..</p>
+
+        <p class = "narrator">[A shot goes off into Jack's thigh. Jack brushing off the shot due to the pulsating adrenaline and continues his pursuit Max with murderous intent]</p>
+
+        <p class = "jack"><strong>Jack (Tolerating pain, Anger, Insane) :</strong> YOU ARE AS GOOD AS DEAD!</p>
+
+        <p class = "narrator">[Jack lounges into the air. From the momentum, he stabs Max in the throat as two more gunshots go off through his chest simultaneously. Both hit the ground with a heavy thud. Max tries to scream out for help, but only warmth comes out from trying to yell. The blood begins to pool under them and footsteps in the distance begin to echo in the stairway.] </p>
+
+        <p class = "max"><strong>Max:</strong> Hu..Ckkkk…Huk….mkeeee…Blughhhkkk…</p>
+
+
+
+
+
+        <!-- <div class="note">Cast: 1 · Runtime: short</div> -->
+    </main>
+</body>
+</html>

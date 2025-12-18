@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fighting</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper-width: min(900px, 92%);
+            --brown: #613a2a;
+            --dark-brown: #402116;
+            --muted: #6b6b6b;
+        }
+
+        html,body{height:100%;}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,var(--brown) 0%, #593424 60%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:43px 18px; 
+            color: #222;
+        }
+
+        .paper{
+            background: #fff;
+            width: var(--paper-width);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.405); 
+            border-top: 9px solid var(--dark-brown); 
+            border-bottom: 7px solid rgba(0,0,0,0.027);
+            padding: 36px 50px 58px; 
+            position:relative;
+        }
+
+        .meta-card{
+            position:absolute;
+            left:25px; 
+            top:-32px; 
+            background:var(--dark-brown);
+            color:#fff;
+            padding:9px 13px;
+            border-radius:3px;
+            font-size:12px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.225);
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+
+        .meta-card .meta-item{display:flex;flex-direction:column}
+        .meta-card .meta-item span:first-child{font-weight:600;opacity:0.95}
+    .meta-card .meta-item span:last-child{opacity:0.85;font-weight:300;font-size:11px}
+
+    .title{font-family:'Merriweather', Georgia, serif; text-align:center; font-size:40px; margin:7px 0 4px; color:var(--dark-brown);}
+    .author{ text-align:center; color:var(--muted); margin:0 0 18px; font-weight:600 }
+
+    .lead{ max-width:78ch; margin: 11px auto 18px; color:#333; line-height:1.58 }
+
+    p{ line-height:1.62; color:#222; margin:16px 0; text-align:justify }
+
+    /* Character-specific styles */
+    p.billy{ background: linear-gradient(90deg, rgba(173,216,255,0.18), rgba(173,216,255,0.06));
+        border-left: 4px solid #3b82f6; /* blue */
+        padding: 6px 10px; border-radius:4px; }
+
+    p.baker{ background: linear-gradient(90deg, rgba(255,182,193,0.12), rgba(255,182,193,0.04));
+        border-left: 4px solid #ef4444; /* red */
+        padding: 6px 10px; border-radius:4px; }
+
+    p.narrator{ font-weight:700; color:#111; margin:14px 0; font-style:normal }
+
+    .note{color:var(--muted); font-size:12px; text-align:right; margin-top:25px}
+
+        @media (max-width:560px){
+            .paper{ padding:25px 18px }
+            .title{ font-size:25px }
+            .meta-card{ left:11px; top:-26px; padding:7px 9px; gap:9px }
+            .meta-card .meta-item span:last-child{display:none}
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="paper" role="main">
+        <div class="meta-card" aria-hidden="true">
+            <div class="meta-item"><span>Cast Size</span><span>1</span></div>
+            <div class="meta-item"><span>Runtime</span><span>Very Long</span></div>
+            <div class="meta-item"><span>Genre</span><span>—</span></div>
+            <div class="meta-item"><span>Characteristics</span><span>Angry</span></div>
+            <div class="meta-item"><span>Recommended Music</span><span>---</span></div>
+            <div class="meta-item"><span>Additional Info</span><span>Scientist</span></div>
+        </div>
+
+        <h1 class="title">Fighting</h1>
+        <div class="author">Raging Winds</div>
+
+        <p class="lead"><strong>Billy: (Childish) </strong>The up and at’em paper boy, happy though he doesn't know what to do with his life.
+        <br><strong>Baker/ Red R: (Adult)</strong> A shop owner that takes a step back and tries to make the best of a situation. </p>
+
+        <p class = "narrator">[The sky brims with an array of gentle warm light as the orangish yellow hue begins to rise across the sky. The air cold and misty with a hint of the smell of last night's rain fills your lungs. Birds chirping in the distance as the world begins to awaken from its slumber once more. Shops around began to populate in the masses for the new sales or items for the regulars. Children run around the streets free in pleasure, smiling in true bliss. In the distance running afar, a child named Billy yells at the top of his lungs holding fresh newspapers for the world to read.] </p>
+
+        <p class = "billy"><strong>Billy (Energetic): </strong> EXTRA EXTRA! GET YOUR NEWS NOW! </p>
+
+        <p class = "narrator">[Billy throws his newspapers at the houses he passes by. Though he is little, his passion is bigger than any other. Like a note that moves up and down in a musical scale. Though, today seems to be the day where notes seem to be high. He then turns the corner for the next set of houses and shops down the way.]</p>
+
+        <p class = "billy"><strong>Billy (Giggles):</strong>  EXTRA EXTR–!</p>
+
+        <p class = "narrator">[He slams right into something hard, yet soft at the same time.]</p>
+
+        <p class = "baker">Baker (gruffs, startled, irritated):  Uhf..Jesus kiddo, watch where ya goin.</p>
+
+        <p class = "narrator"> [The newspapers go flying upon impact as Billy lands on his bum.]</p>
+
+        <p class = "billy">Billy: O-ow..Oh. Oh! Terribly sorry! </p>
+
+        <p class = "narrator">[Billy starts to frantically pick up the papers around him.]</p>
+
+        <p class = "billy">Billy (Sighs in dread):  O’boy…they're gonna rip me a new one after this..</p>
+
+        <p class = "narrator">[Billy starts to pick up the papers around. He then goes to pick up a solid stack of newspapers that had fallen into a puddle next to him. Dreading the repercussions from his boss, he looks at the soaken pages. Baker looks down at the kid as he sees the distraught in his face. Billy’s eyes began to quiver as he held the soaken pages.]</p>
+
+        <p class = "baker">Baker: Hey..uhh kiddo, I-I gotta place u can put those to get em dried if ya want…I noticed y’all always runnin around these parts, and hey, from one busy bee to another, you can dry your stack in my shop.</p>
+
+        <p class = "billy">Billy (Happy, thankful):  Oh! Really! Thank ya so much Mr! Um..Mr..?</p>
+
+        <p class = "baker">Baker (A soft chuckle, amused):  Mr.Baker. Let's head over to my shop to put 'em by the oven kiddo.</p>
+
+        <p class = "billy">Billy: Okay!</p>
+
+        <p class = "narrator">[Baker and Billy head to a local shop called, The Bakers Breadworks. Baker pulls out a ring of keys and unlocks his shop. He walks in to start opening up for the day while Billy enters eagerly.]</p>
+
+        <p class = "baker">Baker (lax tone):  Heya, Kiddo, could you move this right here and...oh and help me put the coal in the oven as well.</p>
+
+        <p class = "narrator">[Baker points at a ladder near the wall and Billy walks over to move it to its respective place.]</p>
+
+        <p class = "billy">Billy: Oh, Okay! Uh, l-like this Mr.Baker Sir?</p>
+        
+        <p class = "baker">Baker: Uhh no, a little more to the left</p>
+
+        <p class = "narrator">[Baker strokes his chin and closes one eye as he directs him with his palm in a gentle waving motion. Billy then moves the ladder in front of a shelf, it's full of ingredients that neither can get to without it.] </p>
+
+        <p class = "baker">Baker: Too much left, more right kiddo</p>
+
+        <p class = "narrator">[Billy starts to follow his lead once more. Baker snaps, then transitions it into a gun gesture with his fingers.]</p>
+
+        <p class = "baker">Baker: Ah bingo kid! Now, help me get this oven started for ya.</p>
+
+        <p class = "narrator">[Billy and Baker began to shovel coal into the oven. Baker starts a few sparks and kindles the fire in the oven. Billy inches closer to the oven to feel the rising warmth.]</p>
+
+        <p class = "baker">Baker (Curious): So, Kiddo, what got ya workin so young?</p>
+
+        <p class = "billy">Billy (Defendant, trying to stay humble):  Well, (Clears his throat) Mr.Baker, it was kinda somethin that kinda looked fun for the time being. Though it's gettin kinda tiring honestly. (Sighs, then stops quickly) D-don’t get me wrong Sir! It pays what it needs to and I'm happy for it, I really am! It’s just that– </p>
+
+        <p class = "baker">Baker (Soft tone): Woah kiddo, no need to get on your toes for me. I was just askin cuz, well, there's not too many kids your age workin these days. Is this somethin you really like doin? </p>
+
+        <p class = "billy">Billy (Sadden, confused): Well, yes and no..I don’t feel like I’m doin enough and at the same time not doin somethin that makes me feel, well ya know good I guess. Just something that I can put on the table for my family. </p>
+
+        <p class = "baker">Baker (Understanding, lighting the mood): Well, it seems like you got big shoes to fill for a little guy. Hm, how about ya help me make something while we wait for your papers to dry. </p>
+
+        <p class = "narrator">[Billy looks up at Baker as his face begins to light up a tad bit. While Baker looks down at him with a warm smile.] </p>
+
+        <p class = "billy">Billy  (sad but a tad happier): I wouldn’t mind.</p>
+
+        <p class = "baker">Baker (Brainstorming, joyful): Hmm, I’m feeling for somethin sweet today...Ah! How bout we make some donuts kiddo?</p>
+
+        <p class = "billy">Billy (Confused):  Doe..nuts? What's that?</p>
+
+        <p class = "baker">Baker (Amused): (Softly chuckles) You’ll find out sure enough bud.</p>
+
+        <p class = "narrator">[Baker goes to grab the wooden bowls and spoons. He then looks at Billy while holding the cooking tools.]</p>
+
+        <p class = "baker">Baker (Soft tone): Hey kid, can ya grab the eggs? I'll grab the flour and the other stuff on the shelf. The eggs are out back for ya to grab em.</p>
+
+        <p class = "billy">Billy: Mhm!</p>
+
+        <p class = "narrator">[Billy pushes the heavy wooden door to the back yard. A heavy creaking reeks from the door as it slowly shifts open. The sun shines down on the yard filled with pens of various animals such as cows, chickens, and goats. Billy walks out across the walkway as the animals around groans and moans about their daily lives. He then looks towards the metal fenced chicken coop across the way. As he enters the coop, he closes the door to the pen behind him. Billy gazes into the coop where he sees at least 6 fresh eggs in the nest and begins to crawl up the beam into the entrance of the coop. As he sticks his head in, his eyes are met with a giant red Rooster.]</p>
+
+        <p class = "rooster">Rooster (Yelling at the top of his lungs furious):  URRR UR URRRRRRR</p>
+
+        <p class = "narrator">[The Rooster bolts towards this infiltrator to his domain.]</p>
+
+        <p class = "billy">Billy: (A spooked and scared yell)</p>
+
+        <p class = "narrator">[Billy quickly grabs 4 eggs in each hand and jumps off the beam.]</p>
+
+        <p class = "rooster">Rooster: (Angrly making loud sounds)</p>
+
+        <p class = "narrator">[Billy lands face first into the dirt while holding up the eggs in his hands. The Rooster jumps shortly behind and glides in the air as it screams at this intruder, ready to fight his foe. Billy gets up and rushes towards the door.]</p>
+
+        <p class = "billy">Billy: (Painting as he runs for the door)</p>
+
+        <p class = "narrator">[The Rooster goes for the attack. As his mouth opens up to bite, Billy leaps at the door, barging right through, dodging the attack. The Rooster charges at full force once more. Billy slams the fence door against the Rooster before he goes for the next strike.]</p>
+        
+        <p class = "rooster">Rooster: (Make a Hurt disgruntled sound)</p>
+
+        <p class = "billy">Billy (Frustrated, Tempered):  You mad ball of feathers! (shivers) Ugh! I just wanted some eggs..jezz</p>
+
+        <p class = "narrator">[Billy heads back inside with a sense of victory in the back of his head. Baker looks at Billy covered in dirt and a tad bit of scratches] </p>
+
+        <p class = "baker">Baker (surprised):  (Laughs) What happened to ya out there kiddo?</p>
+
+        <p class = "billy">Billy (Upset and pouty):  The big ol Rooster started attacking me for no reason! I fought for my life for to get these dang eggs!</p>
+
+        <p class = "baker">Baker (Amused, Playful): Ahh, your talkin bout Big Ol John ay? I shoulda warned ya about him. He doesn't take too kindly to visitors (Chuckles)</p>
+
+        <p class = "narrator">[Billy has a look of frustration and rolls his eyes in a bit of annoyance. He glances back at the pen to meet the glare of a lifetime from Big Ol John, waiting patiently behind the metal fence.]</p>
+
+        <p class = "billy">Billy (Annoyed): Could we just start the cookin already pops…</p>
+
+        <p class = "baker">Baker: Yeah kiddo, sure thing. Here's a stool for ya to get started, oh, and make sure to wash your hands a little before we start. </p>
+
+        <p class = "narrator">[Billy goes to rinse his hands in the nearby bucket. He then rolls up his sleeves and hops on top of the stool ready to start the baking. The two began to mix the eggs, milk, sugar, and flour together along with other various ingredients. After they began to roll out the dough on the table.]</p>
+
+        <p class = "baker">Baker (Soft toned, Nostalgic): Ya know kiddo, believe it or not I used to know someone like ya. A young, spry, and always looking for something fun to do. He would always run around in the early mornings to his farm. Ready to start the day for pickin, growin, and feastin. Always a smile on his face even though he'd work tirelessly to eat everyday, ya know?</p>
+
+        <p class = "billy">Billy (Intrigued): Oh really? He sounds like a fun friend to be around! Is he nearby pops?</p>
+
+        <p class = "baker">Baker (A tad Saddened, light hearted):Well, he's long gone now kiddo. But what I will say is even if life is hard right now, still try to find the things that makes you want to keep going. Try not to let the little or even big things weigh you down so far where that smile is no more.</p>
+
+        <p class = "billy">Billy (Confused): So, is what I’m doing now bad?</p>
+
+        <p class = "baker">Baker (Stern): Depends, are you putting in more than what you're worth?</p>
+
+        <p class = "billy">Billy (Doubtful, Worried): What I’m..worth? I think so, yea…though it does get pretty hard at times with all the weight. And well, a lot of the people are always down in the dumps, it's hard to smile when they all frown. It’s kinda makin me frown at times.</p>
+
+        <p class = "baker">Baker (Soft Toned, Reasoning): Well, take this story with a grain of salt. A group of five builders go to make a house, all are positive and happy going lads. Then there was this group of builders that had four happy goers and one downer. Now, the builders with five happy goers would finish a day early, but while that one downer weighed everyone down, the project took an extra day than the rest wanted by just one person's mood alone. Think of the people who surround you kid, are they weighing you down? Or are they raising you up? Is what you're doing making you that downer? Your young boy, live your life the way you want to live it, and who to live it with. Even though you have a heavy responsibility, you can still make it where it makes you happy too.</p>
+
+        <p class = "billy">Billy (Conflicted, Uncertain): I-I don't know what I want, pops. I have two lil sisters and my mother, they need lil ol me to have something comin so we can have something in our bellies for the night. </p>
+
+        <p class = "narrator">[Baker starts to put the little dough balls on a pan that the two of them made and slide it into the oven.]</p>
+
+        <p class = "baker">Baker (Relaxed tone): It's okay for you not to know what you want kiddo. Hell, sometimes I don't even know what I want, and hey, you know what that means?</p>
+
+        <p class = "billy">Billy (Trying to grasp the thought): That we don't know things..?</p>
+
+        <p class = "baker">Baker (Amused): (chuckles)  Almost, it means we are human. And It's okay for us not to know what comes next, it's okay for us to flip between things, and it's okay for us to try new things.</p>
+
+        <p class = "billy">Billy: Oh, um I think I'm kinda understanding. Also pops, I gotta question.</p>
+
+        <p class = "baker">Baker: Hm?</p>
+
+        <p class = "narrator">[Baker pulls out the round sweet bread from the oven. The sweet aroma of steam rises from the balls and fills the room. Baker then starts to fill them with some blue looking cream.]</p>
+
+        <p class = "billy">Billy (Hopeful, Genuine): Would it be okay if we could do this again? The whole..making stuff thing, I know I'm about to leave, but I really enjoyed helping you out and trying something new for a change.</p>
+
+        <p class = "narrator">[Baker sprinkles a white powder over the filled balls and places them on the table across from Billy. Baker starts to bite into one and Billy reaches forward to grab one as well.]</p>
+
+        <p class = "baker">Baker (Pondering): Hmm, well I am getting up there in years..and I don't see an issue with a few extra hands. Sure kiddo, you wanna come in tomorrow? You can help me make a few things for the day.</p>
+
+        <p class = "billy">Billy (Genuine):I would love to.</p>
+
+        <p class = "narrator">[Billy bites down into the cream filled powdered donut joyfully as he jumps down to go grab the dried newspapers. With his mouth and pockets full of sweets, he waves a goodbye to Baker as Baker returns the wave.]</p>
+
+        <p class = "baker">Baker: See ya tomorrow kiddo.</p>
+
+
+
+
+
+
+
+
+
+
+        
+        <!-- <div class="note">Cast: 1 · Runtime: short</div> -->
+    </main>
+</body>
+</html>

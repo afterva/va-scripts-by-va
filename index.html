@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VA Scripts — Library</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --brown: #613a2a;
+            --dark-brown:#402116;
+            --accent: #593424;
+            --paper:#fff;
+            --muted:#6b6b6b;
+            --max-width:1200px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+            background: linear-gradient(180deg,var(--brown) 0%, var(--accent) 60%);
+            color:#222;
+            display:flex;
+            justify-content:center;
+            padding:36px 20px;
+        }
+
+        .container{
+            width:100%;
+            max-width:var(--max-width);
+            display:grid;
+            grid-template-columns: 260px 1fr;
+            gap:28px;
+        }
+
+        header{
+            grid-column: 1 / -1;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            background:var(--paper);
+            padding:18px 22px;
+            border-top:8px solid var(--dark-brown);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+            margin-bottom:6px;
+        }
+        header .brand{font-family:'Merriweather',serif; font-size:20px; color:var(--dark-brown)}
+        header .top-search{display:flex; gap:10px; align-items:center}
+    .header-nav{display:flex;gap:10px;align-items:center;margin-left:auto}
+    .nav-link{font-size:14px;color:var(--dark-brown);text-decoration:none;padding:6px 8px;border-radius:6px;border:1px solid rgba(64,33,22,0.08);background:transparent}
+    .nav-link:hover,.nav-link:focus{background:rgba(64,33,22,0.06);outline:none}
+        .search-input{padding:8px 10px; border:1px solid #e6e6e6; border-radius:6px; min-width:260px}
+        .btn{background:var(--dark-brown); color:#fff; border:none; padding:9px 12px; border-radius:6px; cursor:pointer}
+
+        /* left filter column */
+        .filters{
+            background:var(--paper);
+            padding:16px;
+            border-radius:6px;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+            height:fit-content;
+        }
+        .filters h3{margin:6px 0 12px; color:var(--dark-brown)}
+        .filters label{display:flex;align-items:center;gap:8px;padding:6px 4px;border-radius:4px}
+
+        /* main list area */
+        main.library{
+            background:var(--paper);
+            padding:20px;
+            border-radius:6px;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.16);
+        }
+        .main-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+        .main-search{display:flex;gap:8px;align-items:center}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+
+    .card{background:#fff;border:1px solid rgba(64,33,22,0.12);padding:12px;border-radius:6px;transition:transform .16s ease,box-shadow .16s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(0,0,0,0.12)}
+    a > .card { text-decoration: none; color: inherit; display:block }
+    
+    a.card-link, a.card-link * { text-decoration: none; color: inherit }
+    a.card-link { display:block }
+    a.card-link:focus-visible { outline: 3px solid rgba(64,33,22,0.18); outline-offset:4px }
+    .small-btn{background:transparent;color:var(--dark-brown);border:1px solid rgba(64,33,22,0.08);padding:6px 8px;border-radius:6px;cursor:pointer;font-size:13px}
+        .card h4{margin:6px 0;color:var(--dark-brown)}
+        .card .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+        .card p{font-size:14px;color:#333;margin:0}
+
+        footer{grid-column:1/-1;text-align:center;color:#fff;margin-top:18px}
+
+        @media (max-width:880px){
+            .container{grid-template-columns:1fr}
+            .filters{order:2}
+            header{flex-direction:column;align-items:flex-start;gap:8px}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">VA Scripts Library</div>
+            <nav aria-label="Primary navigation" class="header-nav">
+                <a href="./index.html" class="small-btn nav-link">Home</a>
+                <a href="./writers.html" class="small-btn nav-link">Writers</a>
+            </nav>
+        </header>
+
+        <aside class="filters" aria-label="filters">
+            <h3>Filters</h3>
+            <div id="writerList">
+                <strong>Writers</strong>
+                <div id="writers"><!-- populated dynamically --></div>
+            </div>
+            <hr>
+            <div id="genreList">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                    <strong>Genre</strong>
+                    <button id="genresToggleBtn" class="small-btn" aria-expanded="true" aria-controls="genres">−</button>
+                </div>
+                <div id="genres" style="margin-top:8px"><!-- populated dynamically --></div>
+                <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                    <button id="toggleGenres" class="small-btn">Uncheck all</button>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <strong>Cast Size</strong>
+                <label><input type="radio" name="cast" value="any" checked> Any</label>
+                <label><input type="radio" name="cast" value="1"> 1</label>
+                <label><input type="radio" name="cast" value="2"> 2</label>
+                <label><input type="radio" name="cast" value="3+"> 3+</label>
+            </div>
+            <hr>
+            <div id="characteristicList">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                    <strong>Characteristics</strong>
+                    <button id="charsToggleBtn" class="small-btn" aria-expanded="true" aria-controls="characteristics">−</button>
+                </div>
+                <div id="characteristics" style="margin-top:8px"><!-- populated dynamically --></div>
+                <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                    <button id="toggleCharacteristics" class="small-btn">Uncheck all</button>
+                </div>
+            </div>
+            <hr>
+            <button id="clearFilters" class="btn" style="width:100%;margin-top:10px">Clear</button>
+        </aside>
+
+        <main class="library">
+            <div class="main-top">
+                <div class="main-search">
+                    <input id="mainSearch" class="search-input" placeholder="Search titles, authors, genres...">
+                    <button id="mainSearchBtn" class="btn">Search</button>
+                </div>
+                <div class="results-info" id="resultsInfo">Showing <span id="count">0</span> items</div>
+            </div>
+
+            <section class="grid" id="list">
+                <!-- cards generated from writers/raging-winds/1-person -->
+                <a class="card-link" href="writers/raging-winds/1-person/a-bubble.html">
+                    <article class="card" data-title="A Bubble" data-author="Raging Winds" data-genre="sci-fi" data-cast="1" data-emo="energetic,nostalgic">
+                        <h4>A Bubble</h4>
+                        <div class="meta">Raging Winds · Sci-Fi · Cast: 1</div>
+                        <p>Exploration of the Bubble Theory as observed by Dr. Veltrum.</p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/a-fight.html">
+                    <article class="card" data-title="A Fight" data-author="Raging Winds" data-genre="" data-cast="1" data-emo="anger,disbelief,nostalgic">
+                        <h4>A Fight</h4>
+                        <div class="meta">Raging Winds · --- · Cast: 1</div>
+                        <p></p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/a-hurtful-soul.html">
+                    <article class="card" data-title="A Hurtful Soul" data-author="Raging Winds" data-genre="" data-cast="1" data-emo="angry,vengeful">
+                        <h4>A Hurtful Soul</h4>
+                        <div class="meta">Raging Winds · --- · Cast: 1</div>
+                        <p></p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/a-night.html">
+                    <article class="card" data-title="A Night" data-author="Raging Winds" data-genre="drama" data-cast="1" data-emo="nostalgic,loving,ambitious,energetic">
+                        <h4>A Night</h4>
+                        <div class="meta">Raging Winds · Drama · Cast: 1</div>
+                        <p>A heartfelt monologue reflecting on a cherished evening.</p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/a-voice.html">
+                    <article class="card" data-title="A Voice" data-author="Raging Winds" data-genre="" data-cast="1" data-emo="sadness,anger,unstable">
+                        <h4>A Voice</h4>
+                        <div class="meta">Raging Winds · --- · Cast: 1</div>
+                        <p></p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/an-empty-promise.html">
+                    <article class="card" data-title="An Empty Promise" data-author="Raging Winds" data-genre="" data-cast="1" data-emo="nostalgic,regret,sadness,torn">
+                        <h4>An Empty Promise</h4>
+                        <div class="meta">Raging Winds · --- · Cast: 1</div>
+                        <p></p>
+                    </article>
+                </a>
+
+                <a class="card-link" href="writers/raging-winds/1-person/andrew-garfield.html">
+                    <article class="card" data-title="Andrew Garfield" data-author="Raging Winds" data-genre="" data-cast="1" data-emo="sad,happy,reflection">
+                        <h4>Andrew Garfield</h4>
+                        <div class="meta">Raging Winds · --- · Cast: 1</div>
+                        <p></p>
+                    </article>
+                </a>
+
+            </section>
+        </main>
+
+    
+    </div>
+
+    <script>
+        // helper to get checked values
+        function getCheckedValues(name){
+            return Array.from(document.querySelectorAll('[name="'+name+'"]'))
+                .filter(i => i.checked)
+                .map(i => i.value);
+        }
+
+        function normalize(s){ return (s||'').toString().toLowerCase(); }
+        // convert a token to Title Case (keeps separators like '-' intact by capitalizing each word)
+        function toTitleCase(s){
+            return (s||'').toString().toLowerCase().replace(/\b([a-z0-9']+)\b/gi, function(w){
+                return w.charAt(0).toUpperCase()+w.slice(1);
+            });
+        }
+
+        function applyFilters(){
+            const mainQ = normalize(document.getElementById('mainSearch').value);
+            const genres = getCheckedValues('genre');
+            const writers = getCheckedValues('writer');
+            const emos = getCheckedValues('characteristic');
+            const cast = document.querySelector('[name="cast"]:checked')?.value || 'any';
+
+            const cards = Array.from(document.querySelectorAll('.card'));
+            let shown = 0;
+            cards.forEach(card => {
+                const title = normalize(card.dataset.title);
+                const author = normalize(card.dataset.author);
+                const genre = normalize(card.dataset.genre);
+                const cardCast = normalize(card.dataset.cast);
+                // parse multi-value characteristics (data-emo)
+                const emoRaw = card.dataset.emo || '';
+                const emoList = emoRaw.split(',').map(s=>normalize(s.trim())).filter(Boolean);
+
+                // text search (main)
+                const textMatch = (!mainQ) || title.includes(mainQ) || author.includes(mainQ);
+
+                // genre filter
+                const genreMatch = genres.length === 0 || genres.includes(genre);
+                // writer filter
+                const writerMatch = writers.length === 0 || writers.includes(author);
+
+                // characteristic filter: card matches if any of its characteristics are selected
+                const emoMatch = emos.length === 0 || emoList.some(e => emos.includes(e));
+
+                // cast filter
+                const castMatch = (cast === 'any') || (cast === cardCast) || (cast === '3+' && (cardCast === '3+' || parseInt(cardCast) >= 3));
+
+                const ok = textMatch && genreMatch && emoMatch && castMatch && writerMatch;
+                // if the card is wrapped in an anchor with .card-link, toggle the anchor
+                const wrapper = card.closest && card.closest('a.card-link');
+                if(wrapper){
+                    wrapper.style.display = ok ? '' : 'none';
+                } else {
+                    card.style.display = ok ? '' : 'none';
+                }
+                if(ok) shown++;
+            });
+
+            document.getElementById('count').textContent = shown;
+        }
+
+        // Build filter lists from card data (genres and characteristics)
+        function populateFilters(){
+            const cards = Array.from(document.querySelectorAll('.card'));
+            const genreSet = new Set();
+            const charSet = new Set();
+            const writerSet = new Set();
+
+            cards.forEach(card=>{
+                const g = (card.dataset.genre||'').toString().trim().toLowerCase();
+                if(g) genreSet.add(g);
+                const w = (card.dataset.author||'').toString().trim().toLowerCase();
+                if(w) writerSet.add(w);
+                const emoRaw = card.dataset.emo || '';
+                emoRaw.split(',').map(s=>s.trim()).filter(Boolean).forEach(v=> charSet.add(v.toLowerCase()));
+            });
+
+            const genresDiv = document.getElementById('genres');
+            genresDiv.innerHTML = '';
+            Array.from(genreSet).sort().forEach(g=>{
+                const id = 'genre-'+g.replace(/[^a-z0-9]+/gi,'-');
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="checkbox" name="genre" value="${g}"> ${toTitleCase(g)}`;
+                genresDiv.appendChild(label);
+            });
+
+            // ensure the Genres "check/uncheck all" button reflects current state
+            const anyGenreChecked = Array.from(genresDiv.querySelectorAll('[name="genre"]')).some(i=>i.checked);
+            document.getElementById('toggleGenres').textContent = anyGenreChecked ? 'Uncheck all' : 'Check all';
+
+            // populate writers
+            const writersDiv = document.getElementById('writers');
+            writersDiv.innerHTML = '';
+            Array.from(writerSet).sort().forEach(w=>{
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="checkbox" name="writer" value="${w}" checked> ${toTitleCase(w)}`;
+                writersDiv.appendChild(label);
+            });
+
+            const charsDiv = document.getElementById('characteristics');
+            charsDiv.innerHTML = '';
+            Array.from(charSet).sort().forEach(c=>{
+                const id = 'char-'+c.replace(/[^a-z0-9]+/gi,'-');
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="checkbox" name="characteristic" value="${c}" checked> ${toTitleCase(c)}`;
+                charsDiv.appendChild(label);
+            });
+
+            // ensure toggle button state
+            const anyChecked = Array.from(document.querySelectorAll('[name="characteristic"]')).some(i=>i.checked);
+            document.getElementById('toggleCharacteristics').textContent = anyChecked ? 'Uncheck all' : 'Check all';
+
+            // wire change events (done here after populating)
+            // (other code may also call applyFilters when inputs change)
+            document.querySelectorAll('.filters input').forEach(i=>i.addEventListener('change', applyFilters));
+        }
+
+        // wire up controls
+        document.getElementById('mainSearchBtn').addEventListener('click', applyFilters);
+    document.getElementById('mainSearch').addEventListener('keyup', (e)=> { if(e.key==='Enter') applyFilters(); });
+        document.getElementById('clearFilters').addEventListener('click', ()=>{
+            document.querySelectorAll('.filters input').forEach(i=>{ if(i.type==='checkbox') i.checked=false; if(i.type==='radio') i.checked = i.value==='any'; });
+            document.getElementById('mainSearch').value='';
+            applyFilters();
+        });
+
+        // toggle Characteristics checkbox button
+        const toggleBtn = document.getElementById('toggleCharacteristics');
+        function setAllCharacteristics(checked){
+            document.querySelectorAll('[name="characteristic"]').forEach(i=> i.checked = checked);
+            toggleBtn.textContent = checked ? 'Uncheck all' : 'Check all';
+        }
+        toggleBtn.addEventListener('click', ()=>{
+            const anyChecked = Array.from(document.querySelectorAll('[name="characteristic"]')).some(i=>i.checked);
+            setAllCharacteristics(!anyChecked);
+            applyFilters();
+        });
+
+        // collapse/expand the characteristics list
+    const charsToggleBtn = document.getElementById('charsToggleBtn');
+    const charsDiv = document.getElementById('characteristics');
+        function setCharsCollapsed(collapsed){
+            charsDiv.style.display = collapsed ? 'none' : '';
+            charsToggleBtn.textContent = collapsed ? '+' : '−';
+            charsToggleBtn.setAttribute('aria-expanded', String(!collapsed));
+        }
+        charsToggleBtn.addEventListener('click', ()=>{
+            const collapsed = charsDiv.style.display === 'none';
+            setCharsCollapsed(!collapsed);
+        });
+    // Note: no secondary toggle button — charsToggleBtn is the single control for collapse/expand
+
+    // Genre collapse/toggle
+    const genresToggleBtn = document.getElementById('genresToggleBtn');
+    const genresDiv = document.getElementById('genres');
+    const toggleGenresBtn = document.getElementById('toggleGenres');
+    function setAllGenres(checked){
+        document.querySelectorAll('[name="genre"]').forEach(i=> i.checked = checked);
+        toggleGenresBtn.textContent = checked ? 'Uncheck all' : 'Check all';
+    }
+    function setGenresCollapsed(collapsed){
+        genresDiv.style.display = collapsed ? 'none' : '';
+        genresToggleBtn.textContent = collapsed ? '+' : '−';
+        genresToggleBtn.setAttribute('aria-expanded', String(!collapsed));
+    }
+    genresToggleBtn.addEventListener('click', ()=>{ const collapsed = genresDiv.style.display === 'none'; setGenresCollapsed(!collapsed); });
+    toggleGenresBtn.addEventListener('click', ()=>{ const any = Array.from(document.querySelectorAll('[name="genre"]')).some(i=>i.checked); setAllGenres(!any); applyFilters(); });
+
+        // initialize filters and state on load
+        window.addEventListener('DOMContentLoaded', ()=>{
+            populateFilters();
+            // ensure all characteristics start checked
+            setAllCharacteristics(true);
+            applyFilters();
+        });
+    </script>
+</body>
+</html>
